@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reciclado de Aluminio</title>
+    <link rel="shortcut icon" href="src/img/logo.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="build/css/app.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="contenedor contenido-header">
+            <h1>Aluminio Reciclado</h1>
+            <nav class="navegacion-principal">
+                <a href="index.html">Inicio</a>
+            </nav>
+        </div>
+    </header>
+    <div class="video">
+        <div class="overlay">
+            <div class="contenedor contenido-video">
+                <h2>Aluminio Reciclado</h2>
+                <p>Empresa SICAMAR METALES</p>
+            </div>
+        </div>
+        <video autoplay muted loop>
+            <source src="video/final.mp4" type="video/mp4">
+            <source src="video/final.ogv" type="video/ogg">
+            <source src="video/final.webm" type="video/webm">
+        </video>
+    </div>
+    <section class="que-simular">
+        <h2>Simulación del Aluminio</h2>
+        <p>La empresa santafesina SICAMAR METALES SA se dedica al reciclaje de aluminio, buscando un producto sostenible
+            y de alta calidad. Producir aluminio desde cero consume mucha energía y contribuye a la emisión de gases de
+            efecto invernadero, además de causar deforestación y otros efectos contaminantes.</p>
+
+        <p>El reciclaje del aluminio a partir de chatarra ayuda a cuidar el medio ambiente, ahorrar energía y crear
+            empleo. El aluminio reciclado mantiene sus propiedades y produce menos CO2. Una tonelada reciclada ahorra 9
+            toneladas de CO2.</p>
+
+        <p>El proceso de reciclaje incluye:</p>
+        <ul>
+            <li><strong>Recolección:</strong> Cada día ingresan a la empresa cinco camiones con 20-30 toneladas de
+                chatarra.</li>
+            <li><strong>Separación:</strong> Se separa la chatarra para eliminar materiales no alumínicos. Entre un 45%
+                y un 75% de la chatarra es aluminio reciclable.</li>
+            <li><strong>Calidad:</strong> El aluminio se clasifica en tres calidades: Aluminio99 (0.1), Aluminio80 (0.4)
+                y Aluminio50 (0.5).</li>
+            <li><strong>Trituración y Fundición:</strong> El aluminio se tritura, se funde a 750°C y se moldea.</li>
+            <li><strong>Productos:</strong> Se fabrican componentes automotrices (Aluminio99), utensilios de cocina
+                (Aluminio80) y componentes industriales (Aluminio50).</li>
+        </ul>
+        <p>El proceso de reciclado simulado sera de 30 días y cuenta con diversos resultados. Entre ellos la cantidad de
+            basura reciclada y las toneladas totales de CO2 ahorradas.</p>
+
+        <div class="galeria-entradas">
+            <div class="entrada">
+                <img src="src/img/camion.jpeg" alt="simular opción 1">
+                <p>Entrada de basura</p>
+            </div>
+            <div class="entrada">
+                <img src="src/img/trituradora.png" alt="simular opción 1">
+                <p>Trituradora de aluminio</p>
+            </div>
+            <div class="entrada">
+                <img src="src/img/aluminio fundido.png" alt="simular opción 1">
+                <p>Fundición de aluminio</p>
+            </div>
+            <div class="entrada">
+                <img src="src/img/molde.jpg " alt="simular opción 1">
+                <p>Moldeado de aluminio</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="input">
+        <h3>Simulador</h3>
+        <div class="input-container contenedor">
+            <div class="datos">
+                <p>Número de camiones que posee la empresa</p>
+                <input type="number" class="input" id="numCamiones" name="numCamiones"
+                    placeholder="Número de camiones (Mínimo 1, Máximo 15, Por defecto 5)" min="1" max="15">
+            </div>
+
+            <div class="datos">
+                <p>Cantidad mínima de basura que llevará un camión</p>
+                <div class="slider">
+                    <input type="range" class="input" id="sliderMin" name="sliderMin" min="5" max="20" value="20"
+                        oninput="document.getElementById('sliderMinValue').innerText = this.value">
+                    <span id="sliderMinValue">5</span> toneladas
+                </div>
+            </div>
+
+            <div class="datos">
+                <p>Capacidad máxima de basura que puede llevar un camión</p>
+                <div class="slider">
+                    <input type="range" class="input" id="sliderMax" name="sliderMax" min="21" max="32" value="30"
+                        oninput="document.getElementById('sliderMaxValue').innerText = this.value">
+                    <span id="sliderMaxValue">21</span> toneladas
+                </div>
+            </div>
+
+            <div class="pregunta">
+                <p>¿Desea agregar un objetivo mínimo de demanda para componentes industriales y para componentes para
+                    autos?</p>
+                <input type="checkbox" id="agregarObjetivo" name="agregarObjetivo">
+            </div>
+
+            <div id="objetivos" class="hidden">
+                <div class="datos">
+                    <p>Objetivo mínimo de demanda para componentes para autos</p>
+                    <input type="number" class="input" id="objetivoAutos" name="objetivoAutos"
+                        placeholder="Demanda mínima (Mínimo 1, Máximo 3000)" min="1" max="3000">
+                </div>
+                <div class="datos">
+                    <p>Objetivo mínimo de demanda para componentes industriales</p>
+                    <input type="number" class="input" id="objetivoIndustriales" name="objetivoIndustriales"
+                        placeholder="Demanda mínima (Mínimo 1, Máximo 10000)" min="1" max="10000">
+                </div>
+            </div>
+
+            <button id="calcular" class="boton-simulacion">Calcular Simulación</button>
+        </div>
+    </section>
+
+
+    <section id="resultados-section" class="contenedor hidden">
+        <h3>Resultados</h3>
+        <div class="contenedor-carga">
+            <div class="loading-container" id="CO2">
+            </div>
+            <div class="loading-container" id="chatarra">
+            </div>
+        </div>
+        <div class="output">
+            <div id="resultados" class="resultados"></div>
+            <div class="chart-wrapper">
+                <p>Aluminio que se reciclo</p>
+                <canvas id="graficoBasuraAluminio"></canvas>
+            </div>
+            <div class="chart-wrapper">
+                <p>Tipos de Aluminio Reciclado</p>
+                <canvas id="graficoProductos"></canvas>
+            </div>
+            <div class="objetivos">
+                <div class="res" id="compra"></div>
+                <div class="res" id="demanda"></div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>Trabajo Final Integrador. Simulación 4K1 2024.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="build/js/bundle.min.js" type="module"></script>
+</body>
+
+</html>

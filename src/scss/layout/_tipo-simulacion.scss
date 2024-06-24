@@ -1,0 +1,68 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.tipo-simulacion {
+    background-color: v.$gris-claro;
+    h3 {
+        text-align: center;
+        color: #000000;
+        margin-bottom: 7rem;
+    }
+}
+
+.simular-opcion {
+    @include m.contenedor;
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 5rem;
+    }
+    .imagen {
+        margin-bottom: 2rem;
+    }
+    img {
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+.simular-datos {
+    border: 2px solid v.$claro;
+
+    border-radius: 2rem;
+    .simular-titulo {
+        padding: 0 2rem;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        font-weight: 700;
+        font-size: 3rem;
+    }
+    p {
+        padding: 0 2rem;
+
+        text-align: justify;
+    }
+}
+
+.boton {
+    display: block;
+    text-transform: uppercase;
+    width: 100%;
+    color: v.$principal;
+    text-align: center;
+    padding: 1rem 3rem 0 3rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+    border-top: 2px solid v.$claro;
+    background-color: v.$gris-claro;
+}
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+    }
+}
+.boton:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

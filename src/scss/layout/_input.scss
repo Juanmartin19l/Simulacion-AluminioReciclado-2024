@@ -1,0 +1,62 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.input {
+    background-color: v.$gris-claro;
+}
+
+.input-container {
+    border: 2px solid v.$claro;
+    border-radius: 2rem;
+}
+.datos {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    p {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    .input {
+        border-radius: 2rem;
+        border: 2px solid v.$claro;
+    }
+    input {
+        margin: 0.5rem 0;
+        display: block;
+        width: 100%;
+    }
+}
+.pregunta {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    border-top: 2px solid v.$claro;
+    p {
+        font-weight: bold;
+    }
+}
+
+.boton-simulacion {
+    display: block;
+    width: 100%;
+    color: v.$principal;
+    text-align: center;
+    padding: 2rem 3rem 0 3rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+    border-top: 2px solid v.$claro;
+    background-color: v.$gris-claro;
+}
+@media (min-width: 768px) {
+    .boton-simulacion {
+        display: inline-block;
+    }
+}
+.boton-simulacion:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

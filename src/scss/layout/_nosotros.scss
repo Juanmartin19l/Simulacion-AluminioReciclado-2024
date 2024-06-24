@@ -1,0 +1,31 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.nosotros {
+    @include m.contenedor;
+}
+
+.nosotros-alumnos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5rem;
+    }
+    @include m.desktop {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+    .nosotros-alumno {
+        text-align: center;
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        background-color: v.$gris-claro;
+        padding: 2rem;
+        border-radius: 2rem;
+    }
+}

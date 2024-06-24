@@ -1,0 +1,77 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.que-simular {
+    text-align: justify;
+    p {
+        font-size: 1.8rem;
+    }
+    @include m.contenedor;
+
+    table {
+        width: 100%;
+        border-collapse: separate; /* Usar separate para aplicar border-radius */
+        border-spacing: 0; /* No espaciado entre bordes */
+        margin-top: 2rem;
+        border: 1px solid v.$claro;
+        border-radius: 10px; /* Bordes redondeados */
+        overflow: hidden; /* Asegurar que los bordes redondeados se apliquen correctamente */
+        font-size: 1.8rem;
+    }
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: left;
+        border-right: 1px solid v.$claro; /* Borde derecho */
+        border-bottom: 1px solid v.$claro; /* Borde inferior */
+    }
+
+    th {
+        border-top: 1px solid v.$claro; /* Borde superior */
+    }
+
+    td {
+        border-top: none; /* Sin borde superior para celdas */
+    }
+
+    th:first-child,
+    td:first-child {
+        border-left: 1px solid v.$claro; /* Borde izquierdo para la primera celda de cada fila */
+    }
+
+    /* Bordes redondeados en esquinas */
+    th:first-child {
+        border-top-left-radius: 10px; /* Borde superior izquierdo */
+    }
+
+    th:last-child {
+        border-top-right-radius: 10px; /* Borde superior derecho */
+    }
+
+    tr:last-child td:first-child {
+        border-bottom-left-radius: 10px; /* Borde inferior izquierdo */
+    }
+
+    tr:last-child td:last-child {
+        border-bottom-right-radius: 10px; /* Borde inferior derecho */
+    }
+    li {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+    }
+}
+
+.galeria-entradas {
+    margin-top: 5rem;
+
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    @include m.desktop {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4rem;
+    }
+}
