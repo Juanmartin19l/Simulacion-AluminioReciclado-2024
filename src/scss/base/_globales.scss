@@ -1,71 +1,122 @@
 @use "variables" as v;
 
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    scroll-padding-top: 0rem;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-padding-top: 8rem; // Aumentado para el menú fijo
+  scroll-behavior: smooth; // Para scroll suave
 }
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 body {
-    font-family: v.$fuente_principal;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: v.$negro;
-    font-size: 2rem;
+  font-family: v.$fuente_principal;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: v.$negro;
+  font-size: 1.8rem; // Reducido para mejor legibilidad
+  line-height: 1.6; // Mejor espaciado entre líneas
+  background-color: v.$gris-claro; // Fondo más suave
+  overflow-x: hidden; // Evitar scroll horizontal
 }
 p {
-    color: v.$negro;
-    line-height: 1.5;
+  color: #1e293b; // Color de texto más suave
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 .contenedor {
-    width: 95%;
-    max-width: 120rem;
-    margin: 0 auto;
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2rem; // Añadir padding horizontal
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
+  color: v.$principal;
+  transition: v.$transicion;
+  &:hover {
+    color: darken(v.$principal, 10%);
+  }
 }
 h1,
 h2,
 h3 {
-    margin: 0 0 5rem 0;
-    font-weight: 900;
+  margin: 0 0 3rem 0; // Reducir margen inferior
+  font-weight: 700; // Un poco menos pesado
+  line-height: 1.2; // Mejor espaciado para títulos
 }
 h1 {
-    font-size: 4rem;
+  font-size: 3.6rem;
 }
 h2 {
-    font-size: 4.6rem;
+  font-size: 3.2rem;
 }
 h3 {
-    font-size: 6rem;
-    text-align: center;
+  font-size: 2.8rem;
+  text-align: center;
 }
 img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 20px;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: v.$radio-md;
+  transition: transform 0.3s ease;
 }
 body > section {
-    padding: 10rem 0;
+  padding: 8rem 0; // Reducir el padding vertical
 }
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 .hidden {
-    display: none;
+  display: none;
+}
+
+// Nuevos estilos para tarjetas
+.card {
+  background-color: v.$blanco;
+  border-radius: v.$radio-md;
+  box-shadow: v.$sombra-sm;
+  overflow: hidden;
+  transition: v.$transicion;
+
+  &:hover {
+    box-shadow: v.$sombra-md;
+    transform: translateY(-5px);
+  }
+}
+
+// Nuevos estilos para secciones
+.seccion {
+  position: relative;
+  background-color: v.$blanco;
+  margin: 4rem 0;
+  border-radius: v.$radio-lg;
+  box-shadow: v.$sombra-sm;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+// Utilidades
+.text-center {
+  text-align: center;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
 }

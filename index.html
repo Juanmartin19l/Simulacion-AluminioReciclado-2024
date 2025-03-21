@@ -8,21 +8,24 @@
     <link rel="shortcut icon" href="src/img/logo.webp" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
-            <h1>Aluminio Reciclado</h1>
+            <h1>Aluminio <span>Reciclado</span></h1>
             <nav class="navegacion-principal">
+                <a href="#sobre-empresa">Sobre Nosotros</a>
                 <a href="#tipo-simulacion">Simular</a>
-                <a href="#nosotros">Nosotros</a>
+                <a href="#nosotros">Equipo</a>
             </nav>
         </div>
     </header>
+
     <div class="video">
         <div class="overlay">
             <div class="contenedor contenido-video">
@@ -37,63 +40,91 @@
         </video>
     </div>
 
-    <section class="sobre-empresa">
+    <section id="sobre-empresa" class="sobre-empresa">
         <div class="imagen">
-            <img src="src/img/IA simulacion.webp" alt="Imagen de latas">
+            <img src="src/img/IA simulacion.webp" alt="Imagen del proceso de reciclaje">
         </div>
         <div class="contenido-simulador">
-            <h2>Reciclado Aluminio</h2>
+            <h2>Reciclado de Aluminio</h2>
             <p class="fecha">Empresa SICAMAR Metales SA</p>
             <p>El reciclado del aluminio es el proceso de recolectar, fundir y reutilizar el aluminio de productos
                 desechados. Este proceso ahorra energía, reduce emisiones de CO2 y disminuye la necesidad de extraer
-                nuevo mineral de aluminio. Trabajaremos con la empresa SICAMAR Metales SA que es una empresa
-                especializada en reciclaje y comercialización de aluminio reciclado.
-            </p>
+                nuevo mineral de aluminio.</p>
+            <p>En SICAMAR Metales SA nos especializamos en el reciclaje y comercialización de aluminio reciclado,
+                contribuyendo a un futuro más sostenible y amigable con el medio ambiente.</p>
         </div>
     </section>
 
     <section id="tipo-simulacion" class="tipo-simulacion">
-        <h3>Simulación</h3>
-        <div class="simular-opcion">
-            <div class="simular-datos">
-                <img src="src/img/simulacion1.webp" alt="Simulación 1" class="imagen">
-                <h4 class="simular-titulo">Simulación del Aluminio</h4>
-                <p>Se simulara la producción de aluminio reciclable. Este proceso se realizará partir de la entrada de
-                    basura mediante una serie de camiones, donde llevan los residuos a una planta de reciclaje. El
-                    aluminio se clasifica, tritura, muele y funde, luego se moldea. Se transforman en tres productos
-                    finales: componentes para autos, utensilios de cocina y componentes industriales</p>
-                <a href="procesoSimulacion.html" class="boton">Simular ya</a>
-            </div> <!--.simular-datos -->
-            <div class="imagen">
-                <img src="src/img/fabrica.webp" alt="Fabrica de aluminio">
+        <div class="contenedor">
+            <h3>Simulación</h3>
+            <div class="simular-opcion">
+                <div class="simular-datos">
+                    <div class="imagen">
+                        <img src="src/img/simulacion1.webp" alt="Simulación de Aluminio">
+                    </div>
+                    <h4 class="simular-titulo">Simulación del Aluminio</h4>
+                    <p>Simularemos la producción de aluminio reciclable a partir de residuos recolectados por camiones.
+                        El proceso incluye clasificación, trituración, fundición y moldeado para crear tres productos
+                        finales: componentes para autos, utensilios de cocina y componentes industriales.</p>
+                    <a href="procesoSimulacion.html" class="boton">Simular ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="imagen-container">
+                    <img src="src/img/fabrica.webp" alt="Fabrica de aluminio">
+                </div>
             </div>
         </div>
     </section>
 
     <section id="nosotros" class="nosotros">
-        <h3>Nosotros</h3>
+        <h3>Nuestro Equipo</h3>
         <div class="nosotros-alumnos">
             <div class="nosotros-alumno">
                 <img src="src/img/usuario.webp" alt="imagen usuario">
                 <p>Lavalle, Juan Martín</p>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="nosotros-alumno">
                 <img src="src/img/usuario.webp" alt="imagen usuario">
                 <p>Llobeta, Juan Lucas</p>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="nosotros-alumno">
                 <img src="src/img/usuario.webp" alt="imagen usuario">
                 <p>Mansilla, Joel Armando</p>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
             </div>
             <div class="nosotros-alumno">
                 <img src="src/img/usuario.webp" alt="imagen usuario">
                 <p>Vaca, Daniel Agustín</p>
+                <div class="redes">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
             </div>
         </div>
     </section>
+
     <footer class="footer">
-        <p>Trabajo Final Integrador. Simulación 4K1 2024.</p>
+        <div class="contenedor">
+            <p>Trabajo Final Integrador. Simulación 4K1 2024.</p>
+            <div class="redes-sociales">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
     </footer>
+
     <script src="build/js/bundle.min.js" type="module"></script>
 </body>
 

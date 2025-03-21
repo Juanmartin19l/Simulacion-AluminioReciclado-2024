@@ -2,67 +2,147 @@
 @use "base/mixins" as m;
 
 .tipo-simulacion {
-    background-color: v.$gris-claro;
-    h3 {
-        text-align: center;
-        color: #000000;
-        margin-bottom: 7rem;
+  background-color: v.$blanco; // Fondo blanco más limpio
+  padding: 8rem 0;
+
+  h3 {
+    text-align: center;
+    color: v.$negro;
+    margin-bottom: 5rem;
+    font-weight: 700;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8rem;
+      height: 0.4rem;
+      background-color: v.$principal;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0.2rem;
     }
+  }
 }
 
 .simular-opcion {
-    @include m.contenedor;
-    @include m.tablet {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 5rem;
-    }
-    .imagen {
-        margin-bottom: 2rem;
-    }
-    img {
-        border-radius: 20px 20px 0 0;
-    }
+  @include m.contenedor;
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+    align-items: stretch;
+  }
 }
 
 .simular-datos {
-    border: 2px solid v.$claro;
+  border-radius: v.$radio-lg;
+  box-shadow: v.$sombra-md;
+  background-color: v.$blanco;
+  overflow: hidden;
+  transition: v.$transicion;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
-    border-radius: 2rem;
-    .simular-titulo {
-        padding: 0 2rem;
-        margin-top: 1rem;
-        margin-bottom: 3rem;
-        font-weight: 700;
-        font-size: 3rem;
-    }
-    p {
-        padding: 0 2rem;
+  &:hover {
+    box-shadow: v.$sombra-lg;
+    transform: translateY(-5px);
+  }
 
-        text-align: justify;
+  .imagen {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      border-radius: v.$radio-lg v.$radio-lg 0 0;
+      transition: transform 0.5s ease;
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &:hover .imagen img {
+    transform: scale(1.05);
+  }
+
+  &:hover .imagen::after {
+    opacity: 1;
+  }
+
+  .simular-titulo {
+    padding: 2rem 2rem 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2.6rem;
+    color: v.$principal;
+  }
+
+  p {
+    padding: 0 2rem;
+    text-align: justify;
+    flex-grow: 1;
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
 }
 
 .boton {
-    display: block;
-    text-transform: uppercase;
-    width: 100%;
-    color: v.$principal;
-    text-align: center;
-    padding: 1rem 3rem 0 3rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    border: none;
-    border-top: 2px solid v.$claro;
-    background-color: v.$gris-claro;
-}
-@media (min-width: 768px) {
-    .boton {
-        display: inline-block;
-    }
-}
-.boton:hover {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: v.$principal;
+  color: v.$blanco;
+  text-align: center;
+  padding: 1.2rem 2.5rem;
+  margin: 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: v.$radio-md;
+  transition: v.$transicion;
+  box-shadow: v.$sombra-sm;
+  align-self: flex-start;
+
+  &:hover {
+    background-color: darken(v.$principal, 10%);
+    box-shadow: v.$sombra-md;
+    transform: translateY(-3px);
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+.imagen-container {
+  border-radius: v.$radio-lg;
+  overflow: hidden;
+  box-shadow: v.$sombra-md;
+  transition: v.$transicion;
+  height: 100%;
+
+  &:hover {
+    box-shadow: v.$sombra-lg;
+    transform: translateY(-5px);
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
 }

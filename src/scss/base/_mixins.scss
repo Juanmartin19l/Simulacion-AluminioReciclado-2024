@@ -1,37 +1,146 @@
 @use "variables" as v;
 
 @mixin telefono {
-    @media (min-width: v.$telefono) {
-        @content;
-    }
+  @media (min-width: v.$telefono) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (min-width: v.$tablet) {
-        @content;
-    }
+  @media (min-width: v.$tablet) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: v.$desktopXL) {
-        @content;
-    }
+  @media (min-width: v.$desktop) {
+    @content;
+  }
 }
 
 @mixin desktopXL {
-    @media (min-width: v.$desktopXL) {
-        @content;
-    }
+  @media (min-width: v.$desktopXL) {
+    @content;
+  }
 }
 
 @mixin contenedor {
-    width: 95%;
-    max-width: 120rem;
-    margin: 0 auto;
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 @mixin resetear-lista {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Nuevos mixins para elementos UI modernos
+@mixin card {
+  background-color: v.$blanco;
+  border-radius: v.$radio-lg;
+  box-shadow: v.$sombra-md;
+  overflow: hidden;
+  transition: v.$transicion;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: v.$sombra-lg;
+  }
+}
+
+@mixin boton($bg-color: v.$principal, $texto: v.$blanco) {
+  display: inline-block;
+  background-color: $bg-color;
+  color: $texto;
+  font-weight: 600;
+  padding: 1.2rem 2.5rem;
+  border-radius: v.$radio-md;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: v.$transicion;
+  box-shadow: v.$sombra-sm;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+    transform: translateY(-3px);
+    box-shadow: v.$sombra-md;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+@mixin imagen-hover {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+@mixin titulo-decorado {
+  position: relative;
+  padding-bottom: 1.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 6rem;
+    height: 0.3rem;
+    background-color: v.$acento;
+    border-radius: 0.2rem;
+  }
+}
+
+@mixin titulo-centrado {
+  text-align: center;
+  position: relative;
+  margin-bottom: 5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 8rem;
+    height: 0.4rem;
+    background-color: v.$principal;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.2rem;
+  }
+}
+
+@mixin grid($columnas, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columnas, 1fr);
+  gap: $gap;
 }

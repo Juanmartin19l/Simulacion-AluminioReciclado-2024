@@ -1,12 +1,28 @@
 $fuente_principal: "Montserrat", sans-serif;
 
+// Nueva paleta de colores más moderna
 $negro: #000000;
 $blanco: #ffffff;
-$principal: #0368d9;
-$secundario: #162b75;
-$gris-claro: #f5f5f5;
-$claro: #dfdfe2;
+$principal: #2563eb; // Azul más moderno
+$secundario: #1e40af; // Azul oscuro más moderno
+$gris-claro: #f8fafc;
+$claro: #e2e8f0;
+$acento: #f97316; // Color naranja para acentos
+$verde: #10b981; // Verde para elementos de éxito
+$rojo: #ef4444; // Rojo para alertas
 
+// Nuevas variables para sombras y bordes
+$sombra-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$sombra-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$sombra-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+$radio-sm: 0.5rem;
+$radio-md: 1rem;
+$radio-lg: 2rem;
+
+// Transiciones
+$transicion: all 0.3s ease;
+
+// Breakpoints
 $telefono: 480px;
 $tablet: 768px;
 $desktop: 1200px;
