@@ -30,6 +30,7 @@ p {
   width: 95%;
   max-width: 120rem;
   margin: 0 auto;
+  margin-top: 4rem;
   padding: 0 2rem; // Añadir padding horizontal
 }
 a {
@@ -119,4 +120,9 @@ input[type="number"] {
 
 .mb-4 {
   margin-bottom: 4rem;
+}
+
+.margin-resultado {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
 }

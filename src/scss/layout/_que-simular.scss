@@ -2,6 +2,8 @@
 @use "base/mixins" as m;
 
 .que-simular {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
   text-align: justify;
   @include m.contenedor;
   background-color: v.$blanco;
