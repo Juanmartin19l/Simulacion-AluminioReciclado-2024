@@ -20,6 +20,18 @@
       border-radius: 0.2rem;
     }
   }
+
+  .descripcion-equipo {
+    max-width: 80rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: #334155;
+    }
+  }
 }
 
 .nosotros-alumnos {
