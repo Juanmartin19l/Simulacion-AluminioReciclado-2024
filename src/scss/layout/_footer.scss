@@ -1,11 +1,168 @@
 @use "base/variables" as v;
+@use "base/mixins" as m;
 
 .footer {
-    background-color: v.$secundario;
-    padding: 2rem 0;
-    p {
-        margin: 0;
-        color: v.$blanco;
-        text-align: center;
+  background: linear-gradient(135deg, v.$principal 0%, v.$secundario 100%);
+  padding: 5rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 4rem;
+
+  // Elementos decorativos
+  &::before {
+    content: "";
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    top: -12rem;
+    left: -10rem;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    bottom: -9rem;
+    right: -7rem;
+  }
+
+  .footer-grid {
+    @include m.contenedor;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+
+    @include m.tablet {
+      grid-template-columns: repeat(2, 1fr);
     }
+
+    @include m.desktop {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .footer-col {
+    h3 {
+      color: v.$blanco;
+      font-size: 2rem;
+      margin: 0 0 2rem 0;
+      position: relative;
+      text-align: left;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -0.8rem;
+        left: 0;
+        width: 4rem;
+        height: 0.3rem;
+        background-color: v.$acento;
+        border-radius: 0.2rem;
+      }
+    }
+
+    p {
+      margin: 0 0 1.5rem;
+      color: v.$blanco;
+      text-align: left;
+      font-size: 1.8rem !important;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .nav-footer {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        color: v.$blanco;
+        opacity: 0.8;
+        font-size: 1.7rem;
+        transition: v.$transicion;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        &:hover {
+          color: v.$acento;
+          opacity: 1;
+          transform: translateX(5px);
+        }
+
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .redes-titulo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      i {
+        color: v.$acento;
+      }
+    }
+
+    .redes-sociales {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+
+      a {
+        color: v.$blanco;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        font-size: 1.8rem;
+        transition: v.$transicion;
+
+        &:hover {
+          background-color: v.$acento;
+          color: v.$blanco;
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+
+  .desarrollador {
+    text-align: center;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    a {
+      color: v.$acento;
+      font-weight: 600;
+      transition: v.$transicion;
+
+      &:hover {
+        color: v.$blanco;
+      }
+    }
+  }
 }

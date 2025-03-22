@@ -2,30 +2,111 @@
 @use "base/mixins" as m;
 
 .nosotros {
-    @include m.contenedor;
+  @include m.contenedor;
+
+  h3 {
+    margin-bottom: 5rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8rem;
+      height: 0.4rem;
+      background-color: v.$principal;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0.2rem;
+    }
+  }
+
+  .descripcion-equipo {
+    max-width: 80rem;
+    margin: 0 auto 4rem;
+    text-align: center;
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: #334155;
+    }
+  }
 }
 
 .nosotros-alumnos {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem;
 
-    @include m.tablet {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5rem;
+  @include m.telefono {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include m.desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nosotros-alumno {
+    text-align: center;
+    background-color: v.$blanco;
+    padding: 3rem 2rem;
+    border-radius: v.$radio-lg;
+    box-shadow: v.$sombra-md;
+    transition: v.$transicion;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: v.$sombra-lg;
     }
-    @include m.desktop {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 2rem;
+
+    img {
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      margin: 0 auto 2rem;
+      object-fit: cover;
+      transition: v.$transicion;
     }
-    .nosotros-alumno {
-        text-align: center;
+
+    &:hover img {
+      transform: scale(1.05);
+      border-color: v.$acento;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: v.$principal;
+      margin: 0;
+      transition: v.$transicion;
+    }
+
+    &:hover p {
+      color: v.$acento;
+    }
+
+    .redes {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+
+      a {
+        color: #64748b;
         font-size: 1.8rem;
-        text-transform: uppercase;
-        background-color: v.$gris-claro;
-        padding: 2rem;
-        border-radius: 2rem;
+        transition: v.$transicion;
+
+        &:hover {
+          color: v.$principal;
+        }
+      }
     }
+  }
 }

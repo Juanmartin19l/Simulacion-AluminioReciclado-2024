@@ -2,61 +2,212 @@
 @use "base/mixins" as m;
 
 .input {
-    background-color: v.$gris-claro;
+  background-color: v.$blanco;
+  padding: 6rem 0;
+
+  h3 {
+    text-align: center;
+    color: v.$negro;
+    margin-bottom: 5rem;
+    font-weight: 700;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8rem;
+      height: 0.4rem;
+      background-color: v.$principal;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0.2rem;
+    }
+  }
 }
 
 .input-container {
-    border: 2px solid v.$claro;
-    border-radius: 2rem;
+  border-radius: v.$radio-lg;
+  box-shadow: v.$sombra-md;
+  background-color: v.$blanco;
+  overflow: hidden;
+  transition: v.$transicion;
+  padding: 4rem 2rem;
+
+  @include m.tablet {
+    padding: 4rem;
+  }
 }
+
 .datos {
-    padding: 2rem;
-    display: grid;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @include m.tablet {
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    p {
-        font-size: 1.8rem;
-        font-weight: bold;
+    gap: 3rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #334155;
+    margin: 0;
+  }
+
+  .input {
+    background-color: v.$gris-claro;
+    border: 1px solid v.$claro;
+    border-radius: v.$radio-md;
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    transition: v.$transicion;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    &:focus {
+      outline: none;
+      border-color: v.$principal;
+      box-shadow: 0 0 0 3px rgba(v.$principal, 0.25);
     }
-    .input {
-        border-radius: 2rem;
-        border: 2px solid v.$claro;
+  }
+
+  input {
+    margin: 0;
+    display: block;
+    width: 100%;
+  }
+
+  .slider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 0.8rem;
+      background-color: v.$claro;
+      border-radius: 0.4rem;
+      outline: none;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        background-color: v.$principal;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken(v.$principal, 10%);
+        }
+      }
+
+      &::-moz-range-thumb {
+        width: 2rem;
+        height: 2rem;
+        border: none;
+        border-radius: 50%;
+        background-color: v.$principal;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: darken(v.$principal, 10%);
+        }
+      }
     }
-    input {
-        margin: 0.5rem 0;
-        display: block;
-        width: 100%;
+
+    span {
+      font-size: 2rem;
+      font-weight: 600;
+      color: v.$principal;
+      min-width: 3rem;
     }
+  }
 }
+
 .pregunta {
-    padding: 2rem;
-    display: grid;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  border-top: 1px solid v.$claro;
+  align-items: center;
+
+  @include m.tablet {
     grid-template-columns: 6fr 1fr;
-    border-top: 2px solid v.$claro;
-    p {
-        font-weight: bold;
-    }
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  input[type="checkbox"] {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    accent-color: v.$principal;
+  }
 }
 
 .boton-simulacion {
-    display: block;
-    width: 100%;
-    color: v.$principal;
-    text-align: center;
-    padding: 2rem 3rem 0 3rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    border: none;
-    border-top: 2px solid v.$claro;
-    background-color: v.$gris-claro;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: v.$principal;
+  color: v.$blanco;
+  text-align: center;
+  padding: 1.5rem 3rem;
+  margin: 3rem auto 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border: none;
+  border-radius: v.$radio-md;
+  transition: v.$transicion;
+  box-shadow: v.$sombra-sm;
+  width: auto;
+  cursor: pointer;
+
+  @include m.tablet {
+    margin: 3rem 2rem 1rem;
+  }
+
+  &:hover {
+    background-color: darken(v.$principal, 10%);
+    box-shadow: v.$sombra-md;
+    transform: translateY(-3px);
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
 }
-@media (min-width: 768px) {
-    .boton-simulacion {
-        display: inline-block;
+
+// Estilo para cuando se muestra la sección de objetivos
+#objetivos {
+  animation: fadeIn 0.5s ease;
+  border-top: 1px solid v.$claro;
+  padding-top: 2rem;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
     }
-}
-.boton-simulacion:hover {
-    cursor: pointer;
-    text-decoration: underline;
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

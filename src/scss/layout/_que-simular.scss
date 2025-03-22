@@ -2,76 +2,161 @@
 @use "base/mixins" as m;
 
 .que-simular {
-    text-align: justify;
-    p {
-        font-size: 1.8rem;
-    }
-    @include m.contenedor;
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+  text-align: justify;
+  @include m.contenedor;
+  background-color: v.$blanco;
+  border-radius: v.$radio-lg;
+  box-shadow: v.$sombra-md;
+  padding: 4rem;
 
-    table {
-        width: 100%;
-        border-collapse: separate; /* Usar separate para aplicar border-radius */
-        border-spacing: 0; /* No espaciado entre bordes */
-        margin-top: 2rem;
-        border: 1px solid v.$claro;
-        border-radius: 10px; /* Bordes redondeados */
-        overflow: hidden; /* Asegurar que los bordes redondeados se apliquen correctamente */
-        font-size: 1.8rem;
-    }
+  h2 {
+    color: v.$principal;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
 
-    th,
-    td {
-        padding: 1rem;
-        text-align: left;
-        border-right: 1px solid v.$claro; /* Borde derecho */
-        border-bottom: 1px solid v.$claro; /* Borde inferior */
+    &::after {
+      content: "";
+      position: absolute;
+      width: 8rem;
+      height: 0.4rem;
+      background-color: v.$acento;
+      bottom: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0.2rem;
     }
+  }
 
-    th {
-        border-top: 1px solid v.$claro; /* Borde superior */
-    }
+  p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #334155;
+  }
 
-    td {
-        border-top: none; /* Sin borde superior para celdas */
-    }
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 3rem 0;
+    border: 1px solid v.$claro;
+    border-radius: v.$radio-md;
+    overflow: hidden;
+    font-size: 1.6rem;
+    box-shadow: v.$sombra-sm;
+  }
 
-    th:first-child,
-    td:first-child {
-        border-left: 1px solid v.$claro; /* Borde izquierdo para la primera celda de cada fila */
-    }
+  th,
+  td {
+    padding: 1.5rem;
+    text-align: left;
+    border-right: 1px solid v.$claro;
+    border-bottom: 1px solid v.$claro;
+  }
 
-    /* Bordes redondeados en esquinas */
-    th:first-child {
-        border-top-left-radius: 10px; /* Borde superior izquierdo */
-    }
+  th {
+    background-color: v.$principal;
+    color: v.$blanco;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  }
 
-    th:last-child {
-        border-top-right-radius: 10px; /* Borde superior derecho */
-    }
+  td {
+    transition: v.$transicion;
+  }
 
-    tr:last-child td:first-child {
-        border-bottom-left-radius: 10px; /* Borde inferior izquierdo */
-    }
+  tr:hover td {
+    background-color: rgba(v.$principal, 0.05);
+  }
 
-    tr:last-child td:last-child {
-        border-bottom-right-radius: 10px; /* Borde inferior derecho */
-    }
-    li {
-        margin-top: 1rem;
-        font-size: 1.8rem;
-    }
+  th:first-child,
+  td:first-child {
+    border-left: 1px solid v.$claro;
+  }
+
+  th:first-child {
+    border-top-left-radius: v.$radio-md;
+  }
+
+  th:last-child {
+    border-top-right-radius: v.$radio-md;
+  }
+
+  tr:last-child td:first-child {
+    border-bottom-left-radius: v.$radio-md;
+  }
+
+  tr:last-child td:last-child {
+    border-bottom-right-radius: v.$radio-md;
+  }
+
+  ul {
+    margin: 2rem 0;
+    padding-left: 2rem;
+  }
+
+  li {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    position: relative;
+    padding-left: 1rem;
+    line-height: 1.6;
+    font-size: 1.8rem;
+  }
 }
 
 .galeria-entradas {
-    margin-top: 5rem;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
 
-    @include m.tablet {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem;
+  @include m.telefono {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include m.tablet {
+    gap: 3rem;
+  }
+
+  @include m.desktop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+
+  .entrada {
+    background-color: v.$blanco;
+    border-radius: v.$radio-lg;
+    overflow: hidden;
+    box-shadow: v.$sombra-md;
+    transition: v.$transicion;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: v.$sombra-lg;
     }
-    @include m.desktop {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4rem;
+
+    img {
+      height: 20rem;
+      object-fit: cover;
+      transition: transform 0.5s ease;
     }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    p {
+      padding: 1.5rem;
+      font-size: 1.6rem;
+      text-align: center;
+      margin: 0;
+      font-weight: 600;
+      color: v.$principal;
+    }
+  }
 }

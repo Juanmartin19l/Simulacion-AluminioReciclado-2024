@@ -4,24 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reciclado de Aluminio</title>
-    <link rel="shortcut icon" href="src/img/logo.jpg" type="image/x-icon">
+    <title>Simulación de Reciclado de Aluminio</title>
+    <link rel="shortcut icon" href="src/img/logo.webp" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="build/css/app.css">
 </head>
 
 <body>
     <header class="header">
         <div class="contenedor contenido-header">
-            <h1>Aluminio Reciclado</h1>
+            <h1>Aluminio <span>Reciclado</span></h1>
             <nav class="navegacion-principal">
-                <a href="index.html">Inicio</a>
+                <a href="index.html"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
             </nav>
         </div>
     </header>
+
     <div class="video">
         <div class="overlay">
             <div class="contenedor contenido-video">
@@ -35,8 +37,9 @@
             <source src="video/final.webm" type="video/webm">
         </video>
     </div>
-    <section class="que-simular">
-        <h2>Simulación del Aluminio</h2>
+
+    <section id="referencias" class="que-simular">
+        <h2>Simulación del Aluminio <i class="fas fa-recycle"></i></h2>
         <p>La empresa santafesina SICAMAR METALES SA se dedica al reciclaje de aluminio, buscando un producto sostenible
             y de alta calidad. Producir aluminio desde cero consume mucha energía y contribuye a la emisión de gases de
             efecto invernadero, además de causar deforestación y otros efectos contaminantes.</p>
@@ -57,108 +60,151 @@
             <li><strong>Productos:</strong> Se fabrican componentes automotrices (Aluminio99), utensilios de cocina
                 (Aluminio80) y componentes industriales (Aluminio50).</li>
         </ul>
-        <p>El proceso de reciclado simulado sera de 30 días y cuenta con diversos resultados. Entre ellos la cantidad de
+        <p>El proceso de reciclado simulado será de 30 días y cuenta con diversos resultados. Entre ellos la cantidad de
             basura reciclada y las toneladas totales de CO2 ahorradas.</p>
 
         <div class="galeria-entradas">
             <div class="entrada">
-                <img src="src/img/camion.jpeg" alt="simular opción 1">
-                <p>Entrada de basura</p>
+                <img src="src/img/camion.webp" alt="Camiones de recolección">
+                <p><i class="fas fa-truck"></i> Entrada de basura</p>
             </div>
             <div class="entrada">
-                <img src="src/img/trituradora.png" alt="simular opción 1">
-                <p>Trituradora de aluminio</p>
+                <img src="src/img/trituradora.webp" alt="Trituradora">
+                <p><i class="fas fa-cogs"></i> Trituradora de aluminio</p>
             </div>
             <div class="entrada">
-                <img src="src/img/aluminio fundido.png" alt="simular opción 1">
-                <p>Fundición de aluminio</p>
+                <img src="src/img/aluminio fundido.webp" alt="Fundición">
+                <p><i class="fas fa-fire"></i> Fundición de aluminio</p>
             </div>
             <div class="entrada">
-                <img src="src/img/molde.jpg " alt="simular opción 1">
-                <p>Moldeado de aluminio</p>
+                <img src="src/img/molde.webp" alt="Moldeado">
+                <p><i class="fas fa-shapes"></i> Moldeado de aluminio</p>
             </div>
         </div>
     </section>
 
-
     <section class="input">
-        <h3>Simulador</h3>
+        <h3>Simulador <i class="fas fa-chart-line"></i></h3>
         <div class="input-container contenedor">
             <div class="datos">
-                <p>Número de camiones que posee la empresa</p>
+                <p><i class="fas fa-truck-moving"></i> Número de camiones que posee la empresa</p>
                 <input type="number" class="input" id="numCamiones" name="numCamiones"
                     placeholder="Número de camiones (Mínimo 1, Máximo 15, Por defecto 5)" min="1" max="15">
             </div>
 
             <div class="datos">
-                <p>Cantidad mínima de basura que llevará un camión</p>
+                <p><i class="fas fa-weight"></i> Cantidad mínima de basura que llevará un camión</p>
                 <div class="slider">
                     <input type="range" class="input" id="sliderMin" name="sliderMin" min="5" max="20" value="20"
                         oninput="document.getElementById('sliderMinValue').innerText = this.value">
-                    <span id="sliderMinValue">5</span> toneladas
+                    <p> <span id="sliderMinValue">20</span> Toneladas
+                    </p>
                 </div>
             </div>
 
             <div class="datos">
-                <p>Capacidad máxima de basura que puede llevar un camión</p>
+                <p><i class="fas fa-weight-hanging"></i> Capacidad máxima de basura que puede llevar un camión</p>
                 <div class="slider">
                     <input type="range" class="input" id="sliderMax" name="sliderMax" min="21" max="32" value="30"
                         oninput="document.getElementById('sliderMaxValue').innerText = this.value">
-                    <span id="sliderMaxValue">21</span> toneladas
+                    <p><span id="sliderMaxValue">30</span> Toneladas</p>
+
                 </div>
             </div>
 
             <div class="pregunta">
-                <p>¿Desea agregar un objetivo mínimo de demanda para componentes industriales y para componentes para
+                <p><i class="fas fa-bullseye"></i> ¿Desea agregar un objetivo mínimo de demanda para componentes
+                    industriales y para componentes para
                     autos?</p>
                 <input type="checkbox" id="agregarObjetivo" name="agregarObjetivo">
             </div>
 
             <div id="objetivos" class="hidden">
                 <div class="datos">
-                    <p>Objetivo mínimo de demanda para componentes para autos</p>
+                    <p><i class="fas fa-car"></i> Objetivo mínimo de demanda para componentes para autos</p>
                     <input type="number" class="input" id="objetivoAutos" name="objetivoAutos"
                         placeholder="Demanda mínima (Mínimo 1, Máximo 3000)" min="1" max="3000">
                 </div>
                 <div class="datos">
-                    <p>Objetivo mínimo de demanda para componentes industriales</p>
+                    <p><i class="fas fa-industry"></i> Objetivo mínimo de demanda para componentes industriales</p>
                     <input type="number" class="input" id="objetivoIndustriales" name="objetivoIndustriales"
                         placeholder="Demanda mínima (Mínimo 1, Máximo 10000)" min="1" max="10000">
                 </div>
             </div>
 
-            <button id="calcular" class="boton-simulacion">Calcular Simulación</button>
+            <button id="calcular" class="boton-simulacion">Calcular Simulación <i
+                    class="fas fa-play-circle"></i></button>
         </div>
     </section>
 
-
-    <section id="resultados-section" class="contenedor hidden">
-        <h3>Resultados</h3>
+    <section id="resultados-section" class="contenedor hidden margin-top">
+        <h3>Resultados de la Simulación <i class="fas fa-chart-pie"></i></h3>
         <div class="contenedor-carga">
             <div class="loading-container" id="CO2">
+                <!-- Se llenará dinámicamente con JavaScript -->
             </div>
             <div class="loading-container" id="chatarra">
+                <!-- Se llenará dinámicamente con JavaScript -->
             </div>
         </div>
         <div class="output">
-            <div id="resultados" class="resultados"></div>
+            <div id="resultados" class="resultados">
+                <!-- Se llenará dinámicamente con JavaScript -->
+            </div>
             <div class="chart-wrapper">
-                <p>Aluminio que se reciclo</p>
+                <p><i class="fas fa-recycle"></i> Aluminio que se recicló</p>
                 <canvas id="graficoBasuraAluminio"></canvas>
             </div>
             <div class="chart-wrapper">
-                <p>Tipos de Aluminio Reciclado</p>
+                <p><i class="fas fa-layer-group"></i> Tipos de Aluminio Reciclado</p>
                 <canvas id="graficoProductos"></canvas>
             </div>
             <div class="objetivos">
-                <div class="res" id="compra"></div>
-                <div class="res" id="demanda"></div>
+                <div class="res" id="compra">
+                    <!-- Se llenará dinámicamente con JavaScript -->
+                </div>
+                <div class="res" id="demanda">
+                    <!-- Se llenará dinámicamente con JavaScript -->
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- ...código existente anterior... -->
+
     <footer class="footer">
-        <p>Trabajo Final Integrador. Simulación 4K1 2024.</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Aluminio <span>Reciclado</span></h3>
+                <p>Este simulador forma parte de un proyecto académico que demuestra el impacto positivo del reciclaje
+                    de aluminio en la reducción de emisiones de CO2 y la optimización de recursos industriales.</p>
+                <p class="redes-titulo"><i class="fas fa-user-circle"></i> Redes del desarrollador:</p>
+                <div class="redes-sociales">
+                    <a href="https://github.com/Juanmartin19l" target="_blank" title="GitHub del desarrollador"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/juan-mart%C3%ADn-lavalle/" target="_blank"
+                        title="LinkedIn del desarrollador"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Navegación</h3>
+                <ul class="nav-footer">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Volver al inicio</a></li>
+                    <li><a href="#resultados-section"><i class="fas fa-chevron-right"></i> Ver resultados</a></li>
+                    <li><a href="#referencias"><i class="fas fa-chevron-right"></i> Referencias</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contenedor">
+            <p class="desarrollador">
+                <i class="fas fa-code"></i> Desarrollado por <a href="https://github.com/Juanmartin19l"
+                    target="_blank">Juan Martín Lavalle</a> | <a
+                    href="https://www.linkedin.com/in/juan-mart%C3%ADn-lavalle/" target="_blank">LinkedIn</a> | UTN FRT
+                - 2024
+            </p>
+        </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="build/js/bundle.min.js" type="module"></script>
 </body>
